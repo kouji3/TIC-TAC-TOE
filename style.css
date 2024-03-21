@@ -35,11 +35,12 @@ body, html {
     inset: 0;
     padding-inline: 30px;
     display: flex;
+    flex-direction: column;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.281);
     backdrop-filter: blur(5px);
 }
@@ -52,7 +53,7 @@ body, html {
 .overlay > h1 {
     font-size: clamp(20px, 7vw + 1rem, 60px);
     opacity: 0;
-    color: rgb(24, 9, 88);
+    color: rgb(27, 86, 121);
     transition: all 0.4s ease;
     transform: translateY(-200px);
     padding-top: 100px;
@@ -64,6 +65,28 @@ body, html {
 }
 
 .overlay > h1::selection {
+    background-color: rgba(255, 255, 255, 0.137);
+}
+
+.no-winner {
+    font-size: clamp(20px, 7vw + 1rem, 60px);
+    opacity: 0;
+    visibility: hidden;
+    
+    color: rgb(27, 86, 121);
+    transition: all 0.4s ease;
+    margin-top: -210px;
+    transform: translateY(-200px);
+    
+}
+
+.no-winner.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.no-winner::selection {
     background-color: rgba(255, 255, 255, 0.137);
 }
 

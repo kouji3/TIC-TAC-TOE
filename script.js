@@ -9,6 +9,7 @@ const intrS1 = document.querySelectorAll(".gameboard > .s1");
 const intrS2 = document.querySelectorAll(".gameboard > .s2");
 const overlay = document.querySelector(".overlay");
 const result = document.querySelector(".overlay > h1");
+const noWinnerResult = document.querySelector(".no-winner");
 const XorO = document.querySelector(".overlay > h1 > .player");
 const btns = [...playBtns];
 
@@ -63,6 +64,7 @@ function addMark(){
 function putXResult() {
     XorO.textContent = "X";
     XorO.style.cssText = "color: #BFD7EA; font-size: 60px;";
+    
     overlay.classList.add("show")
     result.classList.add("show");
     hasOnePlayerWon = true;
@@ -71,6 +73,7 @@ function putXResult() {
 function putOResult() {
     XorO.textContent = "O";
     XorO.style.cssText = "color: #1f2937; font-size: 60px;";
+    
     overlay.classList.add("show");
     result.classList.add("show");
     hasOnePlayerWon = true;
@@ -82,10 +85,10 @@ function putTieResult(){
     console.log(num);
 
     if(num === 9 && hasOnePlayerWon === false){
-        XorO.textContent = "";
-        result.textContent = "No one has Won, sadly";
+        
+        
         overlay.classList.add("show");
-        result.classList.add("show");
+        noWinnerResult.classList.add("show");
     }
    
 }
@@ -103,7 +106,7 @@ function checkTheWinner(){
 
     if(col1[0].textContent === "X" && col1[1].textContent === "X" && col1[2].textContent === "X" ){
         putXResult();
-        hasOnePlayerWon
+        
     }
 
     else if(col1[0].textContent === "O" && col1[1].textContent === "O" && col1[2].textContent === "O" ){
@@ -176,6 +179,7 @@ function reset(){
     hasOnePlayerWon = false;
     overlay.classList.remove("show");
     result.classList.remove("show");
+    noWinnerResult.classList.remove("show");
     btns.forEach(x => {
         x.textContent = "";
     });
