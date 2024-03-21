@@ -10,7 +10,7 @@ const intrS2 = document.querySelectorAll(".gameboard > .s2");
 const overlay = document.querySelector(".overlay");
 const result = document.querySelector(".overlay > h1");
 const noWinnerResult = document.querySelector(".no-winner");
-const XorO = document.querySelector(".overlay > h1 > .player");
+const XorO = document.querySelector(".player");
 const btns = [...playBtns];
 
 
@@ -63,19 +63,25 @@ function addMark(){
 
 function putXResult() {
     XorO.textContent = "X";
-    XorO.style.cssText = "color: #BFD7EA; font-size: 60px;";
+    XorO.style.cssText = "color: #BFD7EA; font-size: 75px;";
     
     overlay.classList.add("show")
     result.classList.add("show");
+    setTimeout(()=> {
+        XorO.classList.add("show");
+    }, 350)
     hasOnePlayerWon = true;
 }
 
 function putOResult() {
     XorO.textContent = "O";
-    XorO.style.cssText = "color: #1f2937; font-size: 60px;";
+    XorO.style.cssText = "color: #1f2937; font-size: 75px;";
     
     overlay.classList.add("show");
     result.classList.add("show");
+    setTimeout(()=> {
+        XorO.classList.add("show");
+    }, 350)
     hasOnePlayerWon = true;
 }
 
@@ -177,6 +183,7 @@ function reset(){
     num = 0;
     firstAdded = false;
     hasOnePlayerWon = false;
+    XorO.classList.remove("show");
     overlay.classList.remove("show");
     result.classList.remove("show");
     noWinnerResult.classList.remove("show");
