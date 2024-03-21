@@ -171,12 +171,12 @@ function checkTheWinner(){
 }
 
 function reset(){
+    num = 0;
+    firstAdded = false;
+    hasOnePlayerWon = false;
+    overlay.classList.remove("show");
+    result.classList.remove("show");
     btns.forEach(x => {
         x.textContent = "";
-        firstAdded = false;
-        num = 0;
-        hasOnePlayerWon = false;
-        overlay.classList.remove("show");
-        result.classList.remove("show");
-    })
+    });
 }
