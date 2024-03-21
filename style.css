@@ -10,12 +10,27 @@ body, html {
 
 .gameboard-container {
     width: 100vw;
+    position: relative;
     display: flex;
+    
+    flex-direction: column;
     height: 100vh;
     color: rgb(67, 70, 248);
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.205);
+}
+
+.game-name {
+    
+    top: 4%;
+    letter-spacing: 1.8px;
+    font-weight: bold;
+    font-size: 45px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(21, 1, 26);
+    position: absolute;
+    
 }
 
 .gameboard {
@@ -35,13 +50,14 @@ body, html {
     inset: 0;
     padding-inline: 30px;
     display: flex;
+    cursor: pointer;
     flex-direction: column;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.753);
+    background-color: rgba(0, 0, 0, 0.712);
     backdrop-filter: blur(5px);
 }
 
@@ -53,11 +69,12 @@ body, html {
 .overlay > h1 {
     font-size: clamp(18px, 7vw + 1rem, 60px);
     opacity: 0;
+    
     line-height: 0.9;
     color: rgb(145, 64, 211);
     transition: all 0.4s ease;
     transform: translateY(-200px);
-    padding-top: 50px;
+    padding-top: 135px;
 }
 
 .overlay > h1.show {
@@ -94,7 +111,7 @@ body, html {
     
     color: rgb(27, 86, 121);
     transition: all 0.4s ease;
-    margin-top: -210px;
+    margin-top: -180px;
     transform: translateY(-200px);
     
 }
@@ -171,6 +188,10 @@ body, html {
     .player.show {
         transform: translateY(8px);
         
+    }
+
+    .overlay {
+        backdrop-filter: blur(15px);
     }
 
 }

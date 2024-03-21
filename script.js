@@ -21,10 +21,19 @@ let num = 0;
 
 
 
-overlay.addEventListener("click", () => {
+overlay.addEventListener("click", (e) => {
+    e.stopPropagation();
     reset();
-})
+    
+});
 
+result.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+noWinnerResult.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
 
 window.onload = addMark();
 
