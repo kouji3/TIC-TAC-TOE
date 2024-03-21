@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.gameboard-container {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    color: rgb(67, 70, 248);
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.205);
+}
+
+.gameboard {
+    width: 370px;
+    height: 370px;
+    /* box-shadow: 0px 0px 0px 1px rgb(255, 255, 255); */
+    background-color: rgba(38, 4, 116, 0.555);
+    display: grid;
+    padding: 25px;
+    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    padding-inline: 30px;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.281);
+    backdrop-filter: blur(5px);
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay > h1 {
+    font-size: clamp(20px, 7vw + 1rem, 60px);
+    opacity: 0;
+    color: rgb(24, 9, 88);
+    transition: all 0.4s ease;
+    transform: translateY(-200px);
+    padding-top: 100px;
+}
+
+.overlay > h1.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay > h1::selection {
+    background-color: rgba(255, 255, 255, 0.137);
+}
+
+
+.gameboard > * {
+
+    font-size: 60px;
+    background-color: rgba(255, 255, 255, 0);
+   
+    
+    cursor: pointer;
+    outline: none;
+    color: white;
+    
+}
+
+
+
+.first, .second, .third {
+    border-bottom: none;
+}
+
+.first {
+    border-top: 0;
+    
+}
+
+.col1 {
+    border-left: none;
+    border-right: 0;
+}
+
+.col3 {
+    border-left: none;
+    border-right: 0;
+}
+
+.first:active {
+    border-bottom: 0px solid rgb(85, 83, 83);;
+}
+
+.second:active {
+    border-top: 2px solid rgb(85, 83, 83);
+    border-bottom: 0px solid rgb(85, 83, 83);;
+}
+
+.third:active {
+    border-top: 2px solid rgb(85, 83, 83);
+}
+
+.col2:active {
+    border-left: 2px solid rgb(85, 83, 83);
+}
+.col2 {
+    border-right: 2px solid rgb(85, 83, 83);
+}
+
+@media (max-width: 430px){
+    .col2 {
+        border-right: 2px solid rgb(114, 113, 113);
+    }
+
+}
