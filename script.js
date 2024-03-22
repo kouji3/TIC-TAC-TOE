@@ -2,6 +2,7 @@ const playBtns = document.querySelectorAll(".gameboard > *");
 const column1 = document.querySelectorAll(".gameboard > .col1");
 const column2 = document.querySelectorAll(".gameboard > .col2");
 const column3 = document.querySelectorAll(".gameboard > .col3");
+
 const row1 = document.querySelectorAll(".gameboard > .first");
 const row2 = document.querySelectorAll(".gameboard > .second");
 const row3 = document.querySelectorAll(".gameboard > .third");
@@ -27,13 +28,7 @@ overlay.addEventListener("click", (e) => {
     
 });
 
-result.addEventListener("click", (e) => {
-    e.stopPropagation();
-});
 
-noWinnerResult.addEventListener("click", (e) => {
-    e.stopPropagation();
-});
 
 window.onload = addMark();
 
@@ -50,8 +45,7 @@ function addMark(){
                 checkTheWinner();
                 
                 x.style.cssText = "color: #BFD7EA;";
-                let ooo = [...x.classList];
-                console.log(ooo[0] === "first" && ooo[1] === "col1");
+                
                 firstAdded = true;
 
             } else {
@@ -59,7 +53,7 @@ function addMark(){
                 x.textContent = "O";
                 checkTheWinner();
                 x.style.cssText = "color: #1f2937;";
-                console.log(x.classList);
+               
                 firstAdded = false;
             }
 
@@ -78,7 +72,7 @@ function putXResult() {
     result.classList.add("show");
     setTimeout(()=> {
         XorO.classList.add("show");
-    }, 350)
+    }, 300)
     hasOnePlayerWon = true;
 }
 
@@ -97,7 +91,7 @@ function putOResult() {
 function putTieResult(){
     
 
-    console.log(num);
+   
 
     if(num === 9 && hasOnePlayerWon === false){
         
